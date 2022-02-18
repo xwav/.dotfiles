@@ -51,6 +51,9 @@ cd ~/.config/neovim && git checkout stable
 make && make install
 cd ~/.config && rm -r neovim
 
+cd ~/.config/
+git clone https://github.com/xwav/nvim.git
+
 #download and install cht.sh
 curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
 chmod +x /usr/local/bin/cht.sh
@@ -58,7 +61,7 @@ chmod +x /usr/local/bin/cht.sh
 # pull bare dotfile repo
 git clone \
     --separate-git-dir=$HOME/.dotfiles \
-    git@github.com:xwav/.dotfiles.git 
+    https://github.com/xwav/.dotfiles.git 
 
 # download script for running bashmount
 # cd /usr/local/bin
