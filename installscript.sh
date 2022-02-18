@@ -58,10 +58,10 @@ git clone https://github.com/xwav/nvim.git
 curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
 chmod +x /usr/local/bin/cht.sh
 
-# pull bare dotfile repo
-git clone \
-    --separate-git-dir=$HOME/.dotfiles \
-    https://github.com/xwav/.dotfiles.git 
+#pull bare dotfile repo
+mkdir ~/.dotfiles
+cd ~/.dotfiles
+git clone --bare https://github.com/xwav/.dotfiles.git ~/.dotfiles 
 
 # download script for running bashmount
 # cd /usr/local/bin
