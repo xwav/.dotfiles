@@ -59,9 +59,13 @@ curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
 chmod +x /usr/local/bin/cht.sh
 
 #pull bare dotfile repo
-mkdir ~/.dotfiles
-cd ~/.dotfiles
+#mkdir ~/.dotfiles
+#cd ~/.dotfiles
 git clone --bare https://github.com/xwav/.dotfiles.git ~/.dotfiles 
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' 
+config checkout
+config config --local status.showUntrackedFiles no
+
 
 # download script for running bashmount
 # cd /usr/local/bin
