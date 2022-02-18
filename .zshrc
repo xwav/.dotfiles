@@ -94,7 +94,14 @@ alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 # config commit -m "Add bashrc"
 # config push
 
+# To clone the repo use next commands
+# git clone \
+#    --separate-git-dir=$HOME/dotfiles \
+#    git@github.com:GregOwen/dotfiles.git \
+#    dotfiles-tmp
 # {{{ Main
+
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ls="ls -aF --color=always"
