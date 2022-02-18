@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-scale '/home/xwav/.config/wallpapers/dark-forest.jpg' '/home/xwav/.config/wallpapers/pexels-photo-2387819.jpeg' '/home/xwav/.config/wallpapers/pexels-photo-2646237.jpeg' '/home/xwav/.config/wallpapers/bw-forest.jpg' '/home/xwav/.config/wallpapers/1987992.jpg' '/home/xwav/.config/wallpapers/green-leaves.jpg' '/home/xwav/.config/wallpapers/dark-sand.jpg' 
