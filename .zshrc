@@ -96,9 +96,9 @@ alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 # To clone the repo use next commands
 # git clone \
-#    --separate-git-dir=$HOME/dotfiles \
-#    git@github.com:GregOwen/dotfiles.git \
-#    dotfiles-tmp
+#    --separate-git-dir=$HOME/.dotfiles \
+#    git@github.com:xwav/.dotfiles.git \
+#    .dotfiles
 # {{{ Main
 
 

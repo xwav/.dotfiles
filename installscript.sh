@@ -40,15 +40,16 @@ mkdir ~/.config
 #download and build suckless tools
 cd ~/.config
 git clone https://github.com/xwav/suckless && \
-cd ~/.config/dwm && make && make clean install 
-cd ~/.config/dmenu && make && make clean install
-cd ~/.config/st && make && make clean install
+cd ~/.config/suckless/dwm && make && make clean install 
+cd ~/.config/suckless/dmenu && make && make clean install
+cd ~/.config/suckless/st && make && make clean install
 
 #download and build nvim
 cd ~/.config
 git clone https://github.com/neovim/neovim
 cd ~/.config/neovim && git checkout stable 
 make && make install
+cd ~/.config && rm -r neovim
 
 #download and install cht.sh
 curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
@@ -60,8 +61,8 @@ git clone \
     git@github.com:xwav/.dotfiles.git 
 
 # download script for running bashmount
-cd /usr/local/bin
-git clone https://raw.githubusercontent.com/jamielinux/bashmount/master/bashmount
+# cd /usr/local/bin
+# git clone https://raw.githubusercontent.com/jamielinux/bashmount/master/bashmount
 
 #install GoogleDrive ocamlfuse
 apt install \
