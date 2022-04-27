@@ -88,7 +88,7 @@ alias z="nvim /home/$USER/.zshrc"
 
 
 # init bare repo for dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 # After you've executed the setup any file within the $HOME folder can be versioned with normal commands, replacing git with your newly created config alias, like:
 # git init --bare $HOME/.dotfiles

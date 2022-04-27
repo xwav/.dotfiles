@@ -80,26 +80,23 @@ chsh -s $(which zsh) $USER
 # Installing dotfiles 
 echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"' >> $HOME/.zshrc
 source ~/.zshrc
-echo ".dotfiles.git" >> .gitignore
+echo ".dotfiles.git" >> $HOME/.gitignore
 git clone --bare https://www.github.com/xwav/.dotfiles.git $HOME/.dotfiles.git
+#dotfiles checkout
+#dotfiles config --local status.showUntrackedFiles no
+
+#backup old config files
+function dotfiles {
+   /usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME $@
+}
+mkdir -p ~/.dotfiles-backup && \
+dotfiles checkout
+if [ $? = 0 ]; then
+  echo "Checked out config.";
+  else
+    echo "Backing up pre-existing dot files.";
+    dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
+fi;
 dotfiles checkout
 dotfiles config --local status.showUntrackedFiles no
-
-# #pull my --bare repository with dotfiles
-# cd /home/$USER
-# git clone --bare https://github.com/xwav/.dotfiles.git 
-#
-# function config {
-#    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
-# }
-# mkdir -p ~/.dotfiles-backup && \
-# config checkout
-# if [ $? = 0 ]; then
-#   echo "Checked out config.";
-#   else
-#     echo "Backing up pre-existing dot files.";
-#     config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
-# fi;
-# config checkout
-# config config status.showUntrackedFiles no
 
