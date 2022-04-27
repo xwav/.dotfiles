@@ -91,4 +91,11 @@ ${color1}${goto 35}Bitrate      : ${color}${wireless_bitrate  wlp3s0}
 ${color1}${goto 35}Total Down/Up : ${color}${totaldown wlp3s0}/${totalup wlp0s20f3}
 ${color1}${goto 35}Speed Down/Up : ${color}${downspeed wlp3s0}/${upspeed wlp0s20f3}
 ${color1}${goto 35}IP address : ${color}${addr wlp3s0}
+
+${color1}${font ConkySymbols:size=16}${font} ${voffset -10} LAN» $hr${color}
+${color1}${goto 35}Total Down/Up : ${color}${totaldown enp0s25}/${totalup enp0s25f3}
+${color1}${goto 35}Speed Down/Up : ${color}${downspeed enp0s25}/${upspeed enp0s25f3}
+${color1}${goto 35}IP address : ${color}${addr enp0s25}
+
+
 ]]
