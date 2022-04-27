@@ -1,7 +1,7 @@
 #set date on top bar
 ~/xsetroot.sh & 
 
-xrdb -merge ~/.Xresources
+#xrdb -merge ~/.Xresources
 
 feh --bg-scale --randomize  ~/.config/wallpapers/* &
 xcompmgr -c &

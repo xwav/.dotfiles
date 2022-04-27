@@ -1,5 +1,5 @@
-#!/bin/bash
 
+#!/bin/bash
 #install software and packages
 
 sudo apt update && \
@@ -32,10 +32,10 @@ most \
 rlwrap \
 keepassxc \
 zathura \
-pmount
+pmount \
+jmtpfs \
+calcurse
 
-#create directories 
-mkdir ~/.config 
 
 #download and build suckless tools
 cd ~/.config
@@ -51,35 +51,14 @@ cd ~/.config/neovim && git checkout stable
 make && make install
 cd ~/.config && rm -r neovim
 
+#get my bester nvim config :)
 cd ~/.config/
 git clone https://github.com/xwav/nvim.git
 
 #download and install cht.sh
-curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
+curl https://cht.sh/:cht.sh | tee /usr/local/bin/cht.sh
 chmod +x /usr/local/bin/cht.sh
 
-#pull bare dotfile repo
-cd ~
-git clone --bare https://github.com/xwav/.dotfiles.git ~/.dotfiles 
-
-function config {
-   /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
-}
-mkdir -p ~/.dotfiles-backup && \
-config checkout
-if [ $? = 0 ]; then
-  echo "Checked out config.";
-  else
-    echo "Backing up pre-existing dot files.";
-    config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
-fi;
-config checkout
-config config status.showUntrackedFiles no
-
-
-# download script for running bashmount
-# cd /usr/local/bin
-# git clone https://raw.githubusercontent.com/jamielinux/bashmount/master/bashmount
 
 #install GoogleDrive ocamlfuse
 apt install \
@@ -98,7 +77,29 @@ google-drive-ocamlfuse
 chsh -s $(which zsh) $USER
 
 
+# Installing dotfiles 
+echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"' >> $HOME/.zshrc
+source ~/.zshrc
+echo ".dotfiles.git" >> .gitignore
+git clone --bare https://www.github.com/xwav/.dotfiles.git $HOME/.dotfiles.git
+dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
 
-
-
+# #pull my --bare repository with dotfiles
+# cd /home/$USER
+# git clone --bare https://github.com/xwav/.dotfiles.git 
+#
+# function config {
+#    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+# }
+# mkdir -p ~/.dotfiles-backup && \
+# config checkout
+# if [ $? = 0 ]; then
+#   echo "Checked out config.";
+#   else
+#     echo "Backing up pre-existing dot files.";
+#     config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
+# fi;
+# config checkout
+# config config status.showUntrackedFiles no
 

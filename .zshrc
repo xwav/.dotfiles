@@ -19,13 +19,12 @@ setopt PROMPT_SUBST
 PROMPT='%F{240}%n%F{red}@%F{green}%m:%F{141}%d%F{reset}$(parse_git_branch) > '
 #PROMPT='%9c%{%F{green}%}$(parse_git_branch)%{%F{none}%} $ '
 
-
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 # Use modern completion system
@@ -63,6 +62,8 @@ export LESSHISTFILE="-"
 export READNULLCMD="${PAGER}"
 export BROWSER="brave-browser"
 export XTERM="st"
+#export PAGER=most
+
 # }}}
 
 # set up the pager for syntax hyghlight in terminal
@@ -80,6 +81,11 @@ alias bm="bash /home/$USER/.config/bashmount/bashmount"
 alias nm="nmtui"
 alias v="nvim"
 alias h="cht.sh --shell"
+alias j="jmtpfs ~/Poco"
+alias p="pmount"
+alias u="pumount"
+alias z="nvim /home/$USER/.zshrc"
+
 
 # init bare repo for dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
@@ -131,7 +137,8 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #mount GoogleDrive
 
-mount | grep "${HOME}/GoogleDrive" >/dev/null || /usr/bin/google-drive-ocamlfuse "${HOME}/GoogleDrive"&
+mount | grep "${HOME}/GoogleDrive" >/dev/null || /usr/bin/google-drive-ocamlfuse "${HOME}/GoogleDrive" > /dev/null 
 
 #support colors in tmux
 TERM=tmux-256color
+
