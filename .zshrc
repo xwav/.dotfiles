@@ -64,11 +64,8 @@ export BROWSER="brave-browser"
 export XTERM="st"
 #export PAGER=most
 
-# }}}
-
 # set up the pager for syntax hyghlight in terminal
 #export PAGER="most"
-
 
 # {{{ Aliases
 alias n="newsboat"
@@ -85,28 +82,6 @@ alias j="jmtpfs ~/Poco"
 alias p="pmount"
 alias u="pumount"
 alias z="nvim /home/$USER/.zshrc"
-
-
-# init bare repo for dotfiles
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
-
-# After you've executed the setup any file within the $HOME folder can be versioned with normal commands, replacing git with your newly created config alias, like:
-# git init --bare $HOME/.dotfiles
-# config config --local status.showUntrackedFiles no
-# config status
-# config add .vimrc
-# config commit -m "Add vimrc"
-# config add .bashrc
-# config commit -m "Add bashrc"
-# config push
-
-# To clone the repo use next commands
-# git clone \
-#    --separate-git-dir=$HOME/.dotfiles \
-#    git@github.com:xwav/.dotfiles.git \
-#    .dotfiles
-# {{{ Main
-
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -127,16 +102,15 @@ alias free="free -m"
 alias x="startx &"
 alias screen="screen -U -l"
 alias passgen="< /dev/urandom tr -cd \[:graph:\] | fold -w 32 | head -n 5"
-# }}}
 
-# {{{ Git aliases need to be added }}}
+# init bare repo for dotfiles
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 #source zsh-syntax-highlightning and zsh-autosuggestions
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #mount GoogleDrive
-
 mount | grep "${HOME}/GoogleDrive" >/dev/null || /usr/bin/google-drive-ocamlfuse "${HOME}/GoogleDrive" > /dev/null 
 
 #support colors in tmux
